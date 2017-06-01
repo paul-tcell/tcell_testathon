@@ -1,4 +1,4 @@
-target/
+**/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -8,5 +8,19 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
+tcell/*.jar
+tcell/tcell_agent.config
+tcell/tcell_agent.config.template
+tcell/tcell.iml
+tcell/README
+tcell/cache
+tcell/logs
+tcell/libtcellagent.*
+tcell/LICENSE_libinjection
+
+
+
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+
+tcell-jvmagent-0.2.38.tar.gz

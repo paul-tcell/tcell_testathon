@@ -1,0 +1,22 @@
+version: '3'
+services:
+  jersey-injection:
+    build:
+      context: .
+      dockerfile: ./jersey/Dockerfile
+    volumes:
+      - ./jersey:/app/appsrc
+      - ./tcell:/app/tcell
+      - ~/.m2:/root/.m2
+    ports:
+      - 8080:8080
+
+
+  struts2-exploit:
+    build:
+      context: .
+      dockerfile: ./struts2-exploit/Dockerfile
+    volumes:
+      - ./tcell:/app/tcell
+    ports:
+      - 8081:8080
