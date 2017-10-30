@@ -55,5 +55,14 @@ public class App {
     public Response redirect(@QueryParam("desired-url") String desiredUrl) {
         return Response.status(302).header("Location", desiredUrl).build();
     }
+    
+    @POST
+    @Path("/gobble-json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response gobbleJSON(String jsonRequest){
+        return Response.ok(jsonRequest).build();
+    }
+    
 
 }
