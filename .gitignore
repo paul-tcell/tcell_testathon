@@ -8,19 +8,17 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 
-tcell/*.jar
-tcell/tcell_agent.config
-tcell/tcell_agent.config.template
-tcell/tcell.iml
-tcell/README
-tcell/cache
-tcell/logs
-tcell/libtcellagent.*
-tcell/LICENSE_libinjection
+jersey/tcell
+struts2-exploit/tcell
+jenkins-exploit/tcell
+
+!jersey/tcell/place_tcell_files_here
+!struts2-exploit/tcell/place_tcell_files_here
+!jenkins-exploit/tcell/place_tcell_files_here
 
 
 
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 
-tcell-jvmagent-0.2.38.tar.gz
+**/tcell-jvmagent-*.tar.gz

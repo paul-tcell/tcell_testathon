@@ -33,13 +33,10 @@ echo -e "\033[77C\033[48;5;221m \033[48;5;220m \033[2C \033[3C \033[3C   \033[49
 echo -e "\033[80C\033[48;5;220m  \033[3C  \033[2C \033[49m"
 echo -e "\033[82C\033[48;5;220m \033[1C   \033[0m"
 
-
-(cd ${APP_SRC} ; mvn clean package)
-
-#rm -rf ${CATALINA_HOME}/webapps/*
-
-cp ${APP_SRC}/target/jersey.war ${CATALINA_HOME}/webapps/jersey.war
-
-#tar -xzvf `ls -1 /app/agentdist/tcell-jvmagent*.tar.gz | tail -1` -C /app
+if [ ! -f /app/tcell/tcellagent.jar ]; then
+    echo "tCell agent not found!"
+    echo "Please install in jersey/tcell"
+    exit 1
+fi
 
 exec ${CATALINA_HOME}/bin/catalina.sh run

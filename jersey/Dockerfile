@@ -1,6 +1,6 @@
 FROM tomcat:8.5
 
-WORKDIR /app
+WORKDIR /app/appsrc
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64     \
     MAVEN_HOME=/app/apache-maven-3.3.9      \
@@ -17,7 +17,14 @@ RUN apt -qq update \
 
 
 COPY jersey/src/main/sh/run.sh /app/
+COPY jersey/ /app/appsrc/
+
 #COPY jersey/src/main/resources/tcell_agent.config /app/tcell/
+
+RUN mvn clean package && cp ${APP_SRC}/target/jersey.war ${CATALINA_HOME}/webapps/jersey.war
+WORKDIR /app
+
+#tar -xzvf `ls -1 /app/agentdist/tcell-jvmagent*.tar.gz | tail -1` -C /app
 
 CMD /app/run.sh
 
